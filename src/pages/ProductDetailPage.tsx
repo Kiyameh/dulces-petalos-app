@@ -1,6 +1,10 @@
 import { useParams } from 'react-router'
 import Header from '../components/Header'
 
+/**
+ * TODO
+ */
+
 const ProductDetailPage = () => {
     const { id } = useParams<{ id: string }>()
 

@@ -1,0 +1,27 @@
+.inputLayout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  border-radius: var(--radius-2xs);
+  border: 1px solid var(--neutral-400);
+  padding-inline: var(--spacing-xs);
+  padding-block: var(--spacing-2xs);
+  background-color: var(--neutral-100);
+  gap: 10px;
+}
+
+.inputLayout form {
+  width: 100%;
+}
+
+.inputLayout input{
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.inputLayout input::placeholder {
+  color: var(--neutral-800);
+}

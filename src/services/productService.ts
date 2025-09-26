@@ -5,6 +5,7 @@ export const API_BASE_URL = 'https://dulces-petalos.jakala.es/api/v1';
 
 
 /**
+ * @version 1
  * @description Obtiene todos los productos de la API
  * @return Product[]
  */
@@ -23,6 +24,7 @@ export const getAllProducts = async () => {
 
 
 /**
+ * @version 1
  * @description Obtiene un producto por su id de la API
  * @param id Id del producto
  * @return Product

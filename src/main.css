@@ -1,14 +1,14 @@
-@font-face{
+@font-face {
   font-family: 'DM Sans';
-  src: url('./assets/fonts/DMSans-VariableFont_opsz\,wght.ttf');
+  src: url('./assets/fonts/dmsans.ttf');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-@font-face{
+@font-face {
   font-family: 'Nunito';
-  src: url('./assets/fonts/Nunito-VariableFont_wdth\,wght.ttf');
+  src: url('./assets/fonts/nunito.ttf');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 
 
-:root{
+:root {
   --spacing-3xs: 4px;
   --spacing-2xs: 8px;
   --spacing-xs: 16px;
@@ -63,7 +63,13 @@
 
   --neutral-100: #ffffff;
   --neutral-200: #e8e8e8;
+  --neutral-300: #d2d2d2;
+  --neutral-400: #bbbbbb;
+  --neutral-800: #606060;
+  --neutral-1000: #333333;
 
+  --success-200: #B5E5CF;
+  --success-600: #206143;
 }
 
 *,
@@ -79,87 +85,86 @@
 
 
 
-body{
-  font-family: 'DM Sans, sans-serif';
+body {
+  font-family: 'DM Sans', sans-serif;
 }
 
-.heading-1{
-  font-family: 'Nunito, Arial, sans-serif';
+.heading-1 {
+  font-family: 'Nunito', Arial, sans-serif;
   font-weight: bold;
   font-size: 48px;
   line-height: 72px;
   letter-spacing: 0;
 }
 
-.heading-2{
-  font-family: 'Nunito, Arial, sans-serif ';
+.heading-2 {
+  font-family: 'Nunito', Arial, sans-serif;
   font-weight: bold;
   font-size: 40px;
   line-height: 60px;
   letter-spacing: 0;
 }
 
-.heading-3{
-  font-family: 'Nunito, Arial, sans-serif';
+.heading-3 {
+  font-family: 'Nunito', Arial, sans-serif;
   font-weight: bold;
   font-size: 34px;
   line-height: 51px;
   letter-spacing: 0;
 }
 
-.heading-4{
-  font-family: 'Nunito, Arial, sans-serif';
+.heading-4 {
+  font-family: 'Nunito', Arial, sans-serif;
   font-weight: bold;
   font-size: 28px;
   line-height: 42px;
   letter-spacing: 0;
 }
 
-.heading-5{
-  font-family: 'Nunito, Arial, sans-serif';
+.heading-5 {
+  font-family: 'Nunito', Arial, sans-serif;
   font-weight: bold;
   font-size: 24px;
   line-height: 36px;
   letter-spacing: 0;
 }
 
-.heading-6{
-  font-family: 'Nunito, Arial, sans-serif';
+.heading-6 {
+  font-family: 'Nunito', Arial, sans-serif;
   font-weight: bold;
   font-size: 20px;
   line-height: 30px;
   letter-spacing: 0;
 }
 
-.body-1{
-  font-family: 'DM Sans, sans-serif';
+.body-1 {
+  font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0;
 }
 
-.body-2{
-  font-family: 'DM Sans, sans-serif ';
+.body-2 {
+  font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: 0;
 }
 
-.body-3{
-  font-family: 'DM Sans, sans-serif';
+.body-3 {
+  font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;
   letter-spacing: 0;
 }
 
-.body-4{
-  font-family: 'DM Sans, sans-serif';
+.body-4 {
+  font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   font-size: 10px;
   line-height: 15px;
   letter-spacing: 0;
 }
-

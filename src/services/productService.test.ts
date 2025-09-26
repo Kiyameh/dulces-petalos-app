@@ -1,10 +1,11 @@
 import axios from "axios";
 import { getAllProducts, getProductById, API_BASE_URL } from "./productService";
 import { describe, it, expect, vi, beforeEach } from 'vitest'
+import type Product from "../types/product";
 
 vi.mock('axios');
 
-const ORQUIDEA = {
+const ORQUIDEA: Product = {
   id: "ZmGrkLRPXOTpxsU4jjAcv",
   name: "Orquídea",
   binomialName: "Ophrys tenthredinifera",
@@ -14,7 +15,7 @@ const ORQUIDEA = {
   fertilizerType: "phosphorus",
   heightInCm: 30
 }
-const ROSA = {
+const ROSA: Product = {
   id: "pMZMhe_ZaAPZoaCCtlDrg",
   name: "Rosa china",
   binomialName: "Rosa chinensis",

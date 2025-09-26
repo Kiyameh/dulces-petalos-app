@@ -1,0 +1,156 @@
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Layout */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  width: 100%;
+  background-color: var(--neutral-100);
+  border-radius: var(--radius-m);
+  padding: var(--spacing-xs);
+  box-shadow: var(--shadow-e3)
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--spacing-2xs);
+}
+
+.header h4 {
+  color: var(--neutral-1000);
+}
+
+.header p {
+  color: var(--neutral-800);
+}
+
+/* Fake header for Skeleton */
+
+.titleSkeleton {
+  background: linear-gradient(90deg, var(--neutral-200) 25%, var(--neutral-300) 50%, var(--neutral-200) 75%);
+  background-size: 200% 100%;
+  animation: pulse 1.5s ease-in-out infinite;
+  width: 70%;
+  height: 36px;
+  border-radius: var(--radius-s);
+}
+
+.subtitleSkeleton {
+  background: linear-gradient(90deg, var(--neutral-200) 25%, var(--neutral-300) 50%, var(--neutral-200) 75%);
+  background-size: 200% 100%;
+  animation: pulse 1.5s ease-in-out infinite;
+  width: 50%;
+  height: 24px;
+  border-radius: var(--radius-s);
+}
+
+
+
+/* Image Container */
+.imgContainer {
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-s);
+}
+
+/* Fake image for Skeleton */
+.imageSkeleton {
+  background: linear-gradient(90deg, var(--neutral-200) 25%, var(--neutral-300) 50%, var(--neutral-200) 75%);
+  background-size: 200% 100%;
+  animation: pulse 1.5s ease-in-out infinite;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-s);
+}
+
+
+/* Badges */
+.newBadge {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--success-200);
+  color: var(--success-600);
+  border-radius: var(--radius-full);
+  padding-inline: var(--spacing-2xs);
+  padding-block: var(--spacing-3xs);
+}
+
+.card:first-of-type .newBadge {
+  display: block;
+}
+
+.priceBadge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: 15px;
+  left: 15px;
+  background-color: var(--neutral-100);
+  width: fit-content;
+  height: 40px;
+  border-radius: var(--radius-full);
+  padding-inline: var(--spacing-xs);
+  padding-block: 10px;
+}
+
+.goToLink {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: none;
+  padding: var(--spacing-2xs);
+  background-color: var(--neutral-100);
+}
+
+/* Fake badges for Skeleton */
+
+.priceBadgeSkeleton {
+  background: linear-gradient(90deg, var(--neutral-200) 25%, var(--neutral-300) 50%, var(--neutral-200) 75%);
+  background-size: 200% 100%;
+  animation: pulse 1.5s ease-in-out infinite;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  width: 80px;
+  height: 40px;
+  border-radius: var(--radius-full);
+}
+
+.goToLinkSkeleton {
+  background: linear-gradient(90deg, var(--neutral-200) 25%, var(--neutral-300) 50%, var(--neutral-200) 75%);
+  background-size: 200% 100%;
+  animation: pulse 1.5s ease-in-out infinite;
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+}
