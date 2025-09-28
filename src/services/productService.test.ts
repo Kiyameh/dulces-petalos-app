@@ -1,30 +1,9 @@
 import axios from "axios";
 import { getAllProducts, getProductById, API_BASE_URL } from "./productService";
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import type Product from "../types/product";
+import { ORQUIDEA, PRODUCTS } from "../utils/testUtils";
 
 vi.mock('axios');
-
-const ORQUIDEA: Product = {
-  id: "ZmGrkLRPXOTpxsU4jjAcv",
-  name: "Orquídea",
-  binomialName: "Ophrys tenthredinifera",
-  price: 4.95,
-  imgUrl: "https://dulces-petalos.jakala.es/images/ophrysTenthredinifera.jpeg",
-  wateringsPerWeek: 1,
-  fertilizerType: "phosphorus",
-  heightInCm: 30
-}
-const ROSA: Product = {
-  id: "pMZMhe_ZaAPZoaCCtlDrg",
-  name: "Rosa china",
-  binomialName: "Rosa chinensis",
-  price: 11.45,
-  imgUrl: "https://dulces-petalos.jakala.es/images/rosaChinensis.jpeg",
-  wateringsPerWeek: 3,
-  fertilizerType: "nitrogen",
-  heightInCm: 195
-}
 
 describe('getAllProducts', async () => {
   beforeEach(() => {
@@ -35,11 +14,11 @@ describe('getAllProducts', async () => {
   it('should return all products', async () => {
 
     vi.mocked(axios.get).mockResolvedValue({
-      data: [ORQUIDEA, ROSA]
+      data: PRODUCTS
     })
-    const products = await getAllProducts();
+    const response = await getAllProducts();
     expect(axios.get).toHaveBeenCalledWith(`${API_BASE_URL}/product`);
-    expect(products).toEqual([ORQUIDEA, ROSA]);
+    expect(response).toEqual(PRODUCTS);
 
   })
 
@@ -61,9 +40,9 @@ describe('getProductById', () => {
     vi.mocked(axios.get).mockResolvedValue({
       data: ORQUIDEA
     })
-    const product = await getProductById("ZmGrkLRPXOTpxsU4jjAcv");
+    const response = await getProductById("ZmGrkLRPXOTpxsU4jjAcv");
     expect(axios.get).toHaveBeenCalledWith(`${API_BASE_URL}/product/ZmGrkLRPXOTpxsU4jjAcv`);
-    expect(product).toEqual(ORQUIDEA);
+    expect(response).toEqual(ORQUIDEA);
 
   })
 

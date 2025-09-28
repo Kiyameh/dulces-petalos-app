@@ -1,4 +1,4 @@
-import ProductCardSkeleton from './ProductCardSkeleton'
+import ProductCardSkeleton from '../ProductCard/ProductCardSkeleton'
 
 /**
  * @version 1

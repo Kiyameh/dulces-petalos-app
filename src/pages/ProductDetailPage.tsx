@@ -3,14 +3,18 @@ import { useParams } from 'react-router'
 import { getProductById } from '../services/productService'
 import type Product from '../types/product'
 
-import Header from '../components/Header'
-import ProductDetail from '../components/ProductDetail'
-import ProductDetailSkeleton from '../components/ProductDetailSkeleton'
+import Header from '../components/Header/Header'
+import ProductDetail from '../components/ProductDetails/ProductDetail'
+import ProductDetailSkeleton from '../components/ProductDetails/ProductDetailSkeleton'
+import Breadcrumb from '../components/Breadcrumb/Breadcrumb'
+import BreadcrumbSkeleton from '../components/Breadcrumb/BreadcrumbSkeleton'
 
 import styles from './Pages.module.css'
-import Breadcrumb from '../components/Breadcrumb'
-import BreadcrumbSkeleton from '../components/BreadcrumbSkeleton'
 
+/**
+ * @version 1
+ * @description Componente que renderiza la página de detalle de un producto
+ */
 const ProductDetailPage = () => {
     const { id } = useParams<{ id: string }>()
 

@@ -47,6 +47,7 @@ const SearchBar = () => {
           placeholder="Busca en nuestra tienda"
           value={searchTerm}
           onChange={handleInputChange}
+          role="search"
         />
       </form>
     </div>

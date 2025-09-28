@@ -1,6 +1,11 @@
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
+
 import styles from "./Pages.module.css";
 
+/**
+ * @version 1
+ * @description Componente que renderiza la página de error al no definir un producto en la url
+ */
 const ProductNotFoundPage = () => {
   return (
     <div>

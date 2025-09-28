@@ -3,10 +3,10 @@ import { useSearchParams } from 'react-router'
 import { getAllProducts } from '../services/productService'
 import type Product from '../types/product'
 
-import ProductListSkeleton from '../components/ProductListSkeleton'
-import ProductList from '../components/ProductList'
-import Header from '../components/Header'
-import SearchBar from '../components/SearchBar'
+import ProductListSkeleton from '../components/ProductList/ProductListSkeleton'
+import ProductList from '../components/ProductList/ProductList'
+import Header from '../components/Header/Header'
+import SearchBar from '../components/SearchBar/SearchBar'
 
 import styles from './pages.module.css'
 
@@ -19,7 +19,7 @@ const ProductListPage = () => {
     const [searchParams] = useSearchParams()
     const [productsPromise, setProductsPromise] = useState<Promise<Product[]> | null>(null)
     const [error, setError] = useState<string | null>(null)
-    
+
     const searchTerm = searchParams.get('search') || ''
 
     useEffect(() => {
@@ -46,7 +46,7 @@ const ProductListPage = () => {
                     {error ? (
                         <p>{error}</p>
                     ) : productsPromise ? (
-                        <div className={styles.productGrid}>
+                        <div className={styles.productGrid} role="product-grid" aria-label="product-grid">
                             <Suspense fallback={<ProductListSkeleton />}>
                                 <ProductList productsPromise={productsPromise} searchTerm={searchTerm} />
                             </Suspense>

@@ -1,0 +1,37 @@
+import { use } from "react"
+import type Product from "../../types/product"
+import styles from "./ProductDetail.module.css"
+
+/**
+ * @version 1
+ * @description Panel de detalles de un producto
+ * @warning El componente debe usarse dentro de un contexto de Suspense con promesa
+ * @param productPromise Promise<Product>
+ */
+const ProductDetail = ({ productPromise }: { productPromise: Promise<Product> }) => {
+  const product = use(productPromise)
+
+  const waterText = product.wateringsPerWeek === 1 ? 'vez' : 'veces'
+
+  return (
+    <article className={styles.detail} role="article" aria-label={`Detalle de ${product.name}`}>
+      <img className={styles.img} src={product.imgUrl} alt={`Imagen de ${product.name}`} />
+      <div className={styles.content}>
+        <header>
+          <h1 className="heading-1" aria-label={`Nombre del producto: ${product.name}`}>{product.name}</h1>
+          <p className="body-1" aria-label={`Nombre científico del producto: ${product.binomialName}`}>{product.binomialName}</p>
+        </header>
+        <h4 className="heading-4" aria-label={`Precio del producto: €${product.price}`}>{`€${product.price}`}</h4>
+        <ul className={styles.requirements}>
+          <li aria-label={`Regar ${product.wateringsPerWeek} ${waterText} por semana`}>{`Regar ${product.wateringsPerWeek} ${waterText} por semana`}</li>
+          <li aria-label={`Fertilizar con ${product.fertilizerType}`}>{`Fertilizar con ${product.fertilizerType}`}</li>
+        </ul>
+        <button className={styles.button} aria-label="Añadir al carrito">
+          <span className="body-2">Añadir al carrito</span>
+        </button>
+      </div>
+    </article>
+  )
+}
+
+export default ProductDetail

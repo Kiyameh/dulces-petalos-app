@@ -1,4 +1,4 @@
-import type Product from "../types/product"
+import type Product from "../../types/product"
 import styles from "./ProductCard.module.css"
 
 
@@ -10,10 +10,10 @@ const ProductCard = ({ product }: { product: Product }) => {
   const { name, binomialName, price, imgUrl } = product
 
   return (
-    <article className={styles.card} role="article" aria-label={`Producto ${name}`}>
+    <article className={styles.card} role="card" aria-label={`Producto ${name}`}>
       <header className={styles.header}>
-        <h4 className="heading-4">{name}</h4>
-        <p className="body-1">{binomialName}</p>
+        <h4 className="heading-4" aria-label={`Nombre del producto ${name}`}>{name}</h4>
+        <p className="body-1" aria-label={`Nombre científico del producto ${binomialName}`}>{binomialName}</p>
       </header>
       <div className={styles.imgContainer}>
         <p className={`${styles.newBadge} body-2`} role="status" aria-label="Producto nuevo">NUEVO</p>

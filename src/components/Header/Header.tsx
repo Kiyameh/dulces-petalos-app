@@ -10,7 +10,7 @@ const Header = () => {
     return (
         <header className={styles.header} role="banner">
             <nav role="navigation">
-                <Link to="/">
+                <Link to="/" aria-label="Inicio">
                     <img src="/logo.svg" alt="Logo de Dulces Pétalos" />
                 </Link>
             </nav>
