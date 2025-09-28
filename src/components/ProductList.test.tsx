@@ -54,7 +54,7 @@ describe('ProductList Component', () => {
 
   it('should render all products when use() hook returns products', () => {
     vi.mocked(use).mockReturnValue(mockProducts);
-    render(<ProductList productsPromise={Promise.resolve(mockProducts)} />);
+    render(<ProductList productsPromise={Promise.resolve(mockProducts)} searchTerm="" />);
 
     const orquidea = screen.getByTestId('ZmGrkLRPXOTpxsU4jjAcv');
     const rosa = screen.getByTestId('pMZMhe_ZaAPZoaCCtlDrg');
@@ -65,7 +65,7 @@ describe('ProductList Component', () => {
 
   it('should render product details correctly', () => {
     vi.mocked(use).mockReturnValue(mockProducts);
-    render(<ProductList productsPromise={Promise.resolve(mockProducts)} />);
+    render(<ProductList productsPromise={Promise.resolve(mockProducts)} searchTerm="" />);
 
     expect(screen.getByText('Orquídea')).toBeDefined();
     expect(screen.getByText('Rosa china')).toBeDefined();
@@ -78,7 +78,7 @@ describe('ProductList Component', () => {
   it('should render correct number of ProductCard components', () => {
     vi.mocked(use).mockReturnValue(mockProducts);
 
-    render(<ProductList productsPromise={Promise.resolve(mockProducts)} />);
+    render(<ProductList productsPromise={Promise.resolve(mockProducts)} searchTerm="" />);
     const productCards = screen.getAllByTestId(/ZmGrkLRPXOTpxsU4jjAcv|pMZMhe_ZaAPZoaCCtlDrg/);
     expect(productCards).toHaveLength(2);
   });
@@ -86,7 +86,7 @@ describe('ProductList Component', () => {
   it('should handle empty products array', () => {
     vi.mocked(use).mockReturnValue([]);
 
-    render(<ProductList productsPromise={Promise.resolve([])} />);
+    render(<ProductList productsPromise={Promise.resolve([])} searchTerm="" />);
     const productCards = screen.queryAllByTestId(/ZmGrkLRPXOTpxsU4jjAcv|pMZMhe_ZaAPZoaCCtlDrg/);
     expect(productCards).toHaveLength(0);
   });
@@ -94,7 +94,7 @@ describe('ProductList Component', () => {
   it('should use product id as key for each ProductCard', () => {
     vi.mocked(use).mockReturnValue(mockProducts);
 
-    render(<ProductList productsPromise={Promise.resolve(mockProducts)} />);
+    render(<ProductList productsPromise={Promise.resolve(mockProducts)} searchTerm="" />);
     expect(screen.getByTestId('ZmGrkLRPXOTpxsU4jjAcv')).toBeDefined();
     expect(screen.getByTestId('pMZMhe_ZaAPZoaCCtlDrg')).toBeDefined();
   });
@@ -103,7 +103,49 @@ describe('ProductList Component', () => {
     const mockPromise = Promise.resolve(mockProducts);
     vi.mocked(use).mockReturnValue(mockProducts);
 
-    render(<ProductList productsPromise={mockPromise} />);
+    render(<ProductList productsPromise={mockPromise} searchTerm="" />);
     expect(use).toHaveBeenCalledWith(mockPromise);
+  });
+
+  describe('Search functionality', () => {
+    it('should filter products by name (case insensitive)', () => {
+      vi.mocked(use).mockReturnValue(mockProducts);
+      render(<ProductList productsPromise={Promise.resolve(mockProducts)} searchTerm="orquídea" />);
+
+      expect(screen.getByTestId('ZmGrkLRPXOTpxsU4jjAcv')).toBeDefined();
+      expect(screen.queryByTestId('pMZMhe_ZaAPZoaCCtlDrg')).toBeNull();
+    });
+
+    it('should filter products by binomial name (case insensitive)', () => {
+      vi.mocked(use).mockReturnValue(mockProducts);
+      render(<ProductList productsPromise={Promise.resolve(mockProducts)} searchTerm="rosa chinensis" />);
+
+      expect(screen.queryByTestId('ZmGrkLRPXOTpxsU4jjAcv')).toBeNull();
+      expect(screen.getByTestId('pMZMhe_ZaAPZoaCCtlDrg')).toBeDefined();
+    });
+
+    it('should filter products with partial matches', () => {
+      vi.mocked(use).mockReturnValue(mockProducts);
+      render(<ProductList productsPromise={Promise.resolve(mockProducts)} searchTerm="rosa" />);
+
+      expect(screen.queryByTestId('ZmGrkLRPXOTpxsU4jjAcv')).toBeNull();
+      expect(screen.getByTestId('pMZMhe_ZaAPZoaCCtlDrg')).toBeDefined();
+    });
+
+    it('should show no products when search term does not match', () => {
+      vi.mocked(use).mockReturnValue(mockProducts);
+      render(<ProductList productsPromise={Promise.resolve(mockProducts)} searchTerm="tulipán" />);
+
+      expect(screen.queryByTestId('ZmGrkLRPXOTpxsU4jjAcv')).toBeNull();
+      expect(screen.queryByTestId('pMZMhe_ZaAPZoaCCtlDrg')).toBeNull();
+    });
+
+    it('should show all products when search term is empty or whitespace', () => {
+      vi.mocked(use).mockReturnValue(mockProducts);
+      render(<ProductList productsPromise={Promise.resolve(mockProducts)} searchTerm="   " />);
+
+      expect(screen.getByTestId('ZmGrkLRPXOTpxsU4jjAcv')).toBeDefined();
+      expect(screen.getByTestId('pMZMhe_ZaAPZoaCCtlDrg')).toBeDefined();
+    });
   });
 });

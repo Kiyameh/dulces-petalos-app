@@ -1,4 +1,5 @@
 import { useEffect, useState, Suspense } from 'react'
+import { useSearchParams } from 'react-router'
 import { getAllProducts } from '../services/productService'
 import type Product from '../types/product'
 
@@ -15,8 +16,11 @@ import styles from './pages.module.css'
  */
 
 const ProductListPage = () => {
+    const [searchParams] = useSearchParams()
     const [productsPromise, setProductsPromise] = useState<Promise<Product[]> | null>(null)
     const [error, setError] = useState<string | null>(null)
+    
+    const searchTerm = searchParams.get('search') || ''
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -44,7 +48,7 @@ const ProductListPage = () => {
                     ) : productsPromise ? (
                         <div className={styles.productGrid}>
                             <Suspense fallback={<ProductListSkeleton />}>
-                                <ProductList productsPromise={productsPromise} />
+                                <ProductList productsPromise={productsPromise} searchTerm={searchTerm} />
                             </Suspense>
                         </div>
                     ) : null}
