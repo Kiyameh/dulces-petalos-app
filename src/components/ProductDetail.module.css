@@ -1,0 +1,131 @@
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.detail {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-l)
+}
+
+@media (max-width: 768px) {
+  .detail {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+.img {
+  width: 100%;
+  border-radius: var(--radius-m);
+}
+
+/* Skeleton de imágen */
+.imageSkeleton {
+  background: linear-gradient(90deg, var(--neutral-300) 25%, var(--neutral-400) 50%, var(--neutral-300) 75%);
+  background-size: 200% 100%;
+  animation: pulse 1.5s ease-in-out infinite;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-m);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--spacing-s);
+  color: var(--neutral-1000)
+}
+
+/* Skeleton del titulo */
+.titleSkeleton {
+  background: linear-gradient(90deg, var(--neutral-300) 25%, var(--neutral-400) 50%, var(--neutral-300) 75%);
+  background-size: 200% 100%;
+  animation: pulse 1.5s ease-in-out infinite;
+  width: 240px;
+  height: 48px;
+  margin-top: 24px;
+  border-radius: var(--radius-s);
+  margin-bottom: var(--spacing-2xs);
+}
+
+.subtitleSkeleton {
+  background: linear-gradient(90deg, var(--neutral-300) 25%, var(--neutral-400) 50%, var(--neutral-300) 75%);
+  background-size: 200% 100%;
+  animation: pulse 1.5s ease-in-out infinite;
+  width: 140px;
+  height: 24px;
+  border-radius: var(--radius-s);
+}
+
+.priceSkeleton {
+  background: linear-gradient(90deg, var(--neutral-300) 25%, var(--neutral-400) 50%, var(--neutral-300) 75%);
+  background-size: 200% 100%;
+  animation: pulse 1.5s ease-in-out infinite;
+  width: 100px;
+  height: 32px;
+  border-radius: var(--radius-s);
+}
+
+.requirements {
+  display: flex;
+  flex-direction: column;
+  padding-left: var(--spacing-xs);
+  gap: var(--spacing-2xs);
+}
+
+/* Skeleton de los requisitos */
+.requirementSkeleton {
+  background: linear-gradient(90deg, var(--neutral-300) 25%, var(--neutral-400) 50%, var(--neutral-300) 75%);
+  background-size: 200% 100%;
+  animation: pulse 1.5s ease-in-out infinite;
+  width: 200px;
+  height: 20px;
+  border-radius: var(--radius-s);
+  list-style: none;
+}
+
+
+.button {
+  height: 44;
+  border: none;
+  border-radius: var(--radius-full);
+  padding-inline: var(--spacing-xs);
+  padding-block: var(--spacing-2xs);
+  background-color: var(--accent-600);
+  color: var(--neutral-100);
+
+}
+
+
+/* Button skeleton */
+.buttonSkeleton {
+  background: linear-gradient(90deg, var(--neutral-300) 25%, var(--neutral-400) 50%, var(--neutral-300) 75%);
+  background-size: 200% 100%;
+  animation: pulse 1.5s ease-in-out infinite;
+  height: 44px;
+  width: 160px;
+  border-radius: var(--radius-full);
+}
+
+@media (max-width: 768px) {
+  .button {
+    width: 100%;
+  }
+
+  .buttonSkeleton {
+    width: 100%;
+  }
+}

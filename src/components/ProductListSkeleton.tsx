@@ -3,6 +3,7 @@ import ProductCardSkeleton from './ProductCardSkeleton'
 /**
  * @version 1
  * @description Skeleton para ProductList
+ * @warning El componente debe usarse dentro de un contexto de Suspense con promesa
  */
 const ProductListSkeleton = () => {
   return (

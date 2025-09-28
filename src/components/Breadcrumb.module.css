@@ -1,0 +1,55 @@
+.breadcrumb {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: var(--spacing-xs);
+}
+
+.breadcrumb .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.breadcrumb a {
+  color: var(--neutral-800);
+  text-decoration: none;
+}
+
+.breadcrumb p {
+  color: var(--neutral-800);
+}
+
+/* Skeleton */
+
+
+.skeletonBar {
+  background: linear-gradient(90deg, var(--neutral-300) 25%, var(--neutral-400) 50%, var(--neutral-300) 75%);
+  background-size: 200% 100%;
+  animation: pulse 1.5s ease-in-out infinite;
+  height: 20px;
+  border-radius: var(--radius-s);
+}
+
+.skeletonBarShort {
+  width: 46px;
+}
+
+.skeletonBarLong {
+  width: 120px;
+}
+
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

@@ -7,7 +7,7 @@ import ProductList from '../components/ProductList'
 import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
 
-import styles from './ProductListPage.module.css'
+import styles from './pages.module.css'
 
 /**
  * @version 1
