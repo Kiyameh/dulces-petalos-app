@@ -9,7 +9,7 @@ import ProductDetailSkeleton from '../components/ProductDetails/ProductDetailSke
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb'
 import BreadcrumbSkeleton from '../components/Breadcrumb/BreadcrumbSkeleton'
 
-import styles from './Pages.module.css'
+import styles from './pages.module.css'
 
 /**
  * @version 1

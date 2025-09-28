@@ -1,6 +1,6 @@
 import Header from "../components/Header/Header";
 
-import styles from "./Pages.module.css";
+import styles from "./pages.module.css";
 
 /**
  * @version 1
